@@ -58,7 +58,7 @@ class FireBase(object):
 
         c = {
             k: v
-            for k, v in self._config.__class__.__dict__.items()
+            for k, v in type(self._config).__dict__.items()
             if not exclude_key(k)
         }
         print('Final config:\n\n'

@@ -30,6 +30,9 @@ class Git(FireBase):
         run_cmd('git push {0} -u {1} HEAD'.format(
             remote or config.publish_default_remote, '-f' if force else ''))
 
+    def feature_list(self):
+        run_cmd('git branch | grep "{0}"'.format(config.feature_prefix))
+
 
 if __name__ == '__main__':
     from fire import Fire
